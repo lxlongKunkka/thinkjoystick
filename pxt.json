@@ -10,7 +10,8 @@
         "main.blocks",
         "main.ts",
         "README.md",
-        "ThinkJoyStick.ts"
+        "ThinkJoyStick.ts",
+        "Oled.ts"
     ],
     "testFiles": [
         "test.ts"
