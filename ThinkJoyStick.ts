@@ -18,10 +18,10 @@ enum KEY {
 //% weight=20 color=#3333ff icon="\uf11b"
 namespace ThinkJoyStick {
     let KEYSCAN = 0;
-    //% blockID==Listen_Key
-    //% block="Listen_Key"
+    //% blockID==KeyPad
+    //% block="ListenKeyPad"
     //% weight=90
-    export function Read74HC165(): void {
+    export function ListenKeyPad(): void {
         pins.setPull(INSR0_DATA, PinPullMode.PullUp)
         pins.digitalWritePin(INSR_LATCH, 0);
         control.waitMicros(2000);
@@ -39,10 +39,10 @@ namespace ThinkJoyStick {
         //basic.showNumber(KEYSCAN);
     }
 
-    //% blockID==Listen_Key
+    //% blockID==KeyPad
     //% block="Key %pin |Press"
     //% weight=90
-    export function Listen_Key(pin: KEY): boolean {
+    export function ReadKeyPad(pin: KEY): boolean {
         if ((KEYSCAN >> pin) & 0x01) {
             return false;
         }
