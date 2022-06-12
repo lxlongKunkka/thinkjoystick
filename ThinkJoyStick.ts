@@ -12,7 +12,8 @@ enum KEY {
     A,
     B,
     X,
-    Y
+    Y,
+    NONE = -1
 };
 
 //% weight=20 color=#3333ff icon="\uf11b"
@@ -43,6 +44,10 @@ namespace ThinkJoyStick {
     //% block="Key %pin |Press"
     //% weight=90
     export function ReadKeyPad(pin: KEY): boolean {
+        if(pin == KEY.NONE)
+        {
+            return true;
+        }
         if ((KEYSCAN >> pin) & 0x01) {
             return false;
         }
